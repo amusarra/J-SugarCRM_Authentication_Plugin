@@ -11,6 +11,11 @@ The features introduced with the 1.6 version are (tested on SugarCRM 5.5 CE/PRO/
 	5) Add the Debug mode on log files.
 
 The features introduced with the 1.7 version are: 
-	A) Support for SuugarCRM 6.1 (CE/PRO/ENT)
+	A) Support for SugarCRM 6.1 (CE/PRO/ENT)
 	B) Support for SugarCRM 6.1 CE configured as Portal
+
+The features introduced with the 1.7.1 version are: 
+	A) Compatible with version 1.7 of Joomla
+	B) SSL Connection to SOAP Web Services
+	C) Support for SugarCRM 6.2 (CE/PRO/ENT)
 	

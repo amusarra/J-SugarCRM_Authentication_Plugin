@@ -47,16 +47,7 @@
 					<option value="0">No</option>
 					<option value="1">Yes</option>
 				</field>
-		   </fieldset>
-		   <fieldset name="advanced">
-				<field name="HttpProxy" type="text" size="50"
-					default="" label="Http Proxy Hostname"
-					description="Http proxy hostname" />
-				<field name="HttpProxyProxy" type="text" size="50"
-					default="" label="Http Proxy Port"
-					description="Http proxy port" />
-			</fieldset>
-		   
+		   </fieldset>		   
 		</fields>
 	</config>
 </extension>

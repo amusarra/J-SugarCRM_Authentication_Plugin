@@ -88,10 +88,12 @@ class plgAuthenticationSugarCRMOverSoap extends JPlugin
 
 		// If SugarCRM CE Portal API password must be hashed (md5)
 		if ($this->params->get('SugarCRMEd') == '0') {
+			$credentials['password'] = md5($credentials['password']);
 			$sugarcrmPortalUserAPIPassword = md5($sugarcrmPortalUserAPIPassword);
 		}
 		// If SugarCRM Pro and Ent password must be hashed (md5)
 		if ($this->params->get('SugarCRMEd') == '1' || $this->params->get('SugarCRMEd') == '2') {
+			$credentials['password'] = md5($credentials['password']);
 			$sugarcrmPortalUserAPIPassword = md5($sugarcrmPortalUserAPIPassword);
 		}
 		
@@ -190,8 +192,9 @@ class plgAuthenticationSugarCRMOverSoap extends JPlugin
 					
 					$jlog->addEntry(array('comment' => 'Login on SugarCRM Success', 'status' =>  JAUTHENTICATE_STATUS_SUCCESS));
 
-					// Set SugarCRM Session Token
+					// Set SugarCRM Session Token & UserID
 					$jSession->set('session.sugarcrm_token', $sugarcrm_session_id);
+					$jSession->set('session.sugarcrm_user_id', $sugarcrm_user_id);
 					
 					return true;
 				}
