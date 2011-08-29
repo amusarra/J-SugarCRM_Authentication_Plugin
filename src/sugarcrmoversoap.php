@@ -50,7 +50,7 @@ class plgAuthenticationSugarCRMOverSoap extends JPlugin
 	 * @return	boolean
 	 * @since	1.5
 	 */
-	function onAuthenticate( $credentials, $options, &$response )
+	function onUserAuthenticate( $credentials, $options, &$response )
 	{
 		/*
 		 * Here you would do whatever you need for an authentication routine with the credentials
@@ -100,7 +100,8 @@ class plgAuthenticationSugarCRMOverSoap extends JPlugin
 
 		try {
 			// Setup SOAP Client and Call Login SOAP Operation
-			$client = new SoapClient($this->params->get('SoapEndPoint'), array('trace' => 1));
+			$clientOptions = array('trace' => 1, 'proxy_host' => $this->params->get('HttpProxy'), 'proxy_port' => $this->params->get('HttpProxyPort'));
+			$client = new SoapClient($this->params->get('SoapEndPoint'), $clientOptions);
 			if ($sugarcrm_checkportal) {
 				if (empty($sugarcrmPortalUserAPI) || empty($sugarcrmPortalUserAPIPassword)) {
 					$response->status = JAUTHENTICATE_STATUS_FAILURE;
